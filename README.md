@@ -5,10 +5,18 @@ Is it a driver injector or driver loader
 cmake ..
 
 # Usage example
-You need to include header file and for example you can write this:
+You need to include header file(like in boost) and for example you can write this:
 
 1)
 ```cpp
+//CPP 20
+#include "include/DriverLoader.hpp"
+
+#include <Windows.h>
+
+#include <iostream>
+#include <string>
+
 int main() {
     std::unique_ptr<DRIVER> Driver; Driver = std::make_unique<DRIVER>();
     std::string Wait;
@@ -32,3 +40,28 @@ int main() {
 }
 ```
 2)
+```cpp
+//CPP 20
+#include "include/DriverLoader.hpp"
+
+#include <Windows.h>
+
+#include <iostream>
+#include <string>
+
+int main() {
+    std::unique_ptr<DRIVER> Driver; Driver = std::make_unique<DRIVER>();
+    std::string Wait;
+
+    Driver->LoadDriver((LPTSTR)L"C:\\HelloWorldDriver.sys", (LPTSTR)L"driver", (LPTSTR)L"driver", SERVICE_DEMAND_START);
+    std::cout << "Driver Started!" << std::endl;
+
+    std::cout << "Press any key to unload driver...";
+    getline(std::cin, Wait, '\n');
+
+    Driver->UnloadDriver();
+    std::cout << "Driver unloaded!" << std::endl;
+
+    return 0;
+}
+```
