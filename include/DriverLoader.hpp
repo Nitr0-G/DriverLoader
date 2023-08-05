@@ -17,8 +17,8 @@ public:
     DWORD StopSvc();
     DWORD StartSvc();
     DWORD CreateSvc();
-    inline DWORD InitSvc(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType);
+    DWORD InitSvc(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType);
 public:
-    inline void LoadDriver(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType);
-    inline void UnloadDriver();
+    void LoadDriver(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType);
+    void UnloadDriver();
 };

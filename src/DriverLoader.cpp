@@ -75,7 +75,7 @@ DWORD DRIVER::CreateSvc()
     CloseServiceHandle(hSCManager); Loaded = true; return SVC_OK;
 }
 
-inline DWORD DRIVER::InitSvc(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType)
+DWORD DRIVER::InitSvc(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType)
 {
     if (IsInit()) { return SVC_OK; }
 
@@ -84,9 +84,9 @@ inline DWORD DRIVER::InitSvc(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosSe
     Init = true; Loaded = false; Started = false; return SVC_OK;
 }
 
-inline void DRIVER::LoadDriver(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType)
+void DRIVER::LoadDriver(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType)
 {
     InitSvc(DriverPath, ServiceName, DosServiceName, StartType); CreateSvc(); StartSvc();
 }
 
-inline void DRIVER::UnloadDriver() { UnloadSvc(); }
+void DRIVER::UnloadDriver() { UnloadSvc(); }
