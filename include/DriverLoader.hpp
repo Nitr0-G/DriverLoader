@@ -21,10 +21,7 @@ public:
 
     ~DRIVER();
 
-    DWORD UnloadSvc();
-    DWORD StopSvc();
-    DWORD StartSvc();
-    DWORD CreateSvc();
+    DWORD UnloadSvc(); DWORD StopSvc(); DWORD StartSvc(); DWORD CreateSvc();
     DWORD InitSvc(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType);
 public:
     void LoadDriver(LPTSTR DriverPath, LPTSTR ServiceName, LPTSTR DosServiceName, DWORD StartType);
@@ -111,7 +108,7 @@ DWORD DRIVER::StopSvc()
 	{
 		CloseServiceHandle(hSCManager); CloseServiceHandle(mhService); throw std::exception("ControlService Failed with error code: " + GetLastError());
 	}
-
+	
 	CloseServiceHandle(hSCManager); CloseServiceHandle(mhService); Started = false;	return SVC_OK;
 }
 
@@ -126,7 +123,7 @@ DWORD DRIVER::UnloadSvc()
 
 	mhService = OpenService(hSCManager, mServiceName, SERVICE_ALL_ACCESS);
 	if (mhService == NULL) { CloseServiceHandle(hSCManager); throw std::exception("OpenService Failed with error code: " + GetLastError()); }
-
+	
 	DeleteService(mhService); CloseServiceHandle(hSCManager); Loaded = false; return SVC_OK;
 }
 
