@@ -1,5 +1,5 @@
 # DriverLoader
-Is it a driver injector or driver loader
+Is it a driver injector or driver loader(Windows)
 
 # How to compile
 cmake ..
