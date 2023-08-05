@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 project("DriverLoader")
 
+add_definitions(-DUNICODE -D_UNICODE)
+
 if(CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64")
     set(IS_X64 TRUE)
 else()
