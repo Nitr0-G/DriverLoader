@@ -10,7 +10,7 @@ You need to include header file and for example you can write this:
 1)
 ```cpp
 int main() {
-    DRIVER Driver;
+    std::unique_ptr<DRIVER> Driver; Driver = std::make_unique<DRIVER>();
     std::string Wait;
 
     Driver.InitSvc((LPTSTR)L"C:\\HelloWorldDriver.sys", (LPTSTR)L"driver", (LPTSTR)L"driver", SERVICE_DEMAND_START);
