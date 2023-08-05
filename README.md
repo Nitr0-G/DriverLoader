@@ -5,7 +5,6 @@ Is it a driver injector or driver loader
 cmake ..
 
 # Usage example
-
 You need to include header file and for example you can write this:
 
 1)
