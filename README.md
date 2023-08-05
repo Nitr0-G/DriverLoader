@@ -7,6 +7,7 @@ cmake ..
 # Usage example
 
 You need to include header file and for example you can write this:
+
 1)
 ```cpp
 int main() {
