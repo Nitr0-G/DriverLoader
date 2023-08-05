@@ -1,5 +1,5 @@
 # DriverLoader
-Is it a driver injector or driver loader(Windows)
+it's a driver injector or driver loader header lib(Windows)
 
 # Usage example
 You need to include header file(like in boost) and for example you can write this:
