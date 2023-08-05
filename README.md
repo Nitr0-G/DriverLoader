@@ -1,9 +1,6 @@
 # DriverLoader
 Is it a driver injector or driver loader(Windows)
 
-# How to compile
-cmake ..
-
 # Usage example
 You need to include header file(like in boost) and for example you can write this:
 
